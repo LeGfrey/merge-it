@@ -28,6 +28,14 @@ class MergedFeed
      */
     private $name;
 
+    /**
+     * @var array
+     *
+     * @ORM\ManyToMany(targetEntity="Feed", inversedBy="mergedFeeds")
+     * @ORM\JoinTable(name="feeds_mergedfeeds")
+     */
+    private $feeds;
+
 
     /**
      * Get id
@@ -61,6 +69,27 @@ class MergedFeed
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Get the feeds to merge
+     * 
+     * @return array feeds
+     */
+    public function getFeeds() {
+        return $this->feeds;
+    }
+
+    /**
+     * Set the feeds to merge
+     * 
+     * @param array feeds
+     * @return MergedFeed
+     */
+    public function setFeeds($feeds) {
+        $this->feeds = $feeds;
+
+        return $this;
     }
 }
 

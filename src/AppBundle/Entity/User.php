@@ -25,6 +25,7 @@ class User extends BaseUser
 
     /**
      * getFeed
+     * 
      * @return array userFeeds
      */
     public function getFeeds() {

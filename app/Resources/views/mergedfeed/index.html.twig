@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>MergedFeed list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for mergedFeed in mergedFeeds %}
+            <tr>
+                <td><a href="{{ path('user_merged_show', { 'id': mergedFeed.id }) }}">{{ mergedFeed.id }}</a></td>
+                <td>{{ mergedFeed.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('user_merged_show', { 'id': mergedFeed.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('user_merged_edit', { 'id': mergedFeed.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('user_merged_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

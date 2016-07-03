@@ -36,13 +36,23 @@ class Feed
     private $name;
 
     /**
-     * @var int
+     * @var User
      *
      * @ORM\ManyToOne(targetEntity="User", inversedBy="feeds")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $author;
 
+    /**
+     * @var MergedFeed
+     *
+     * @ORM\ManyToMany(targetEntity="MergedFeed", mappedBy="feeds")
+     */
+    private $mergedFeeds;
+
+    public function __toString() {
+        return $this->getName().' - '.$this->getUrl();
+    }
 
     /**
      * Get id
@@ -104,7 +114,9 @@ class Feed
 
     /**
      * Set author
-     * @param object $author author
+     * 
+     * @param User $author author
+     * @return Feed
      */
     public function setAuthor($author) {
         $this->author = $author;
@@ -114,7 +126,8 @@ class Feed
 
     /**
      * Get author
-     * @return object author
+     * 
+     * @return User author
      */
     public function getAuthor() {
         return $this->author;

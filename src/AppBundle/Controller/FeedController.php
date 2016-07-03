@@ -46,6 +46,8 @@ class FeedController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // set the author
+            $feed->setAuthor($this->getUser());
             $em = $this->getDoctrine()->getManager();
             $em->persist($feed);
             $em->flush();

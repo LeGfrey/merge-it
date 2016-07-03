@@ -17,4 +17,17 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Feed", mappedBy="author")
+     */
+    private $feeds;
+
+    /**
+     * getFeed
+     * @return array userFeeds
+     */
+    public function getFeeds() {
+    	return $this->feeds();
+    }
 }

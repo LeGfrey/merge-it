@@ -35,6 +35,14 @@ class Feed
      */
     private $name;
 
+    /**
+     * @var int
+     *
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="feeds")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $author;
+
 
     /**
      * Get id
@@ -93,5 +101,22 @@ class Feed
     {
         return $this->name;
     }
-}
 
+    /**
+     * Set author
+     * @param object $author author
+     */
+    public function setAuthor($author) {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     * @return object author
+     */
+    public function getAuthor() {
+        return $this->author;
+    }
+}

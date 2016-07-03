@@ -1,4 +1,3 @@
-merge-it
-========
+#RSS merge service
 
-A Symfony project created on July 3, 2016, 6:34 am.
+** Stay tuned **

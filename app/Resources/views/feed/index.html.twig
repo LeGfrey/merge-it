@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Feed list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Url</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for feed in feeds %}
+            <tr>
+                <td><a href="{{ path('user_feed_show', { 'id': feed.id }) }}">{{ feed.id }}</a></td>
+                <td>{{ feed.url }}</td>
+                <td>{{ feed.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('user_feed_show', { 'id': feed.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('user_feed_edit', { 'id': feed.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('user_feed_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

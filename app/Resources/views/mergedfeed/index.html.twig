@@ -1,12 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>MergedFeed list</h1>
+    <h1>My merged feeds</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Name</th>
                 <th>Actions</th>
             </tr>
@@ -14,8 +13,7 @@
         <tbody>
         {% for mergedFeed in mergedFeeds %}
             <tr>
-                <td><a href="{{ path('user_merged_show', { 'id': mergedFeed.id }) }}">{{ mergedFeed.id }}</a></td>
-                <td>{{ mergedFeed.name }}</td>
+                <td><a href="{{ path('user_merged_show', { 'id': mergedFeed.id }) }}">{{ mergedFeed.name }}</a></td>
                 <td>
                     <ul>
                         <li>

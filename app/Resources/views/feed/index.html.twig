@@ -1,23 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Feed list</h1>
+    <h1>My feeds</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Url</th>
                 <th>Name</th>
+                <th>Url</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for feed in feeds %}
             <tr>
-                <td><a href="{{ path('user_feed_show', { 'id': feed.id }) }}">{{ feed.id }}</a></td>
+                <td><a href="{{ path('user_feed_show', { 'id': feed.id }) }}">{{ feed.name }}</a></td>
                 <td>{{ feed.url }}</td>
-                <td>{{ feed.name }}</td>
                 <td>
                     <ul>
                         <li>

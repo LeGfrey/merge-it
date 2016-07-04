@@ -22,7 +22,8 @@ class MergedFeedType extends AbstractType
             ->add('feeds', EntityType::class, [
                 "class" => "AppBundle\Entity\Feed",
                 "multiple" => true,
-                "expanded" => true
+                "expanded" => true,
+                "choices" => $options['choices']
             ])
         ;
     }
@@ -33,7 +34,8 @@ class MergedFeedType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\MergedFeed'
+            'data_class' => 'AppBundle\Entity\MergedFeed',
+            'choices' => []
         ));
     }
 }

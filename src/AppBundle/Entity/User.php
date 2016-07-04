@@ -24,11 +24,25 @@ class User extends BaseUser
     private $feeds;
 
     /**
+     * @ORM\OneToMany(targetEntity="MergedFeed", mappedBy="author")
+     */
+    private $mergedFeeds;
+
+    /**
      * getFeed
      * 
      * @return array userFeeds
      */
     public function getFeeds() {
-    	return $this->feeds();
+    	return $this->feeds;
+    }
+
+    /**
+     * getMergedFeeds
+     *
+     * @return array userMergedFeeds
+     */
+    public function getMergedFeeds() {
+        return $this->mergedFeeds;
     }
 }

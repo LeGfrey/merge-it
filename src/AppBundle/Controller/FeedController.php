@@ -26,7 +26,7 @@ class FeedController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $feeds = $em->getRepository('AppBundle:Feed')->findAll();
+        $feeds = $em->getRepository('AppBundle:Feed')->findByAuthor($this->getUser());
 
         return $this->render('feed/index.html.twig', array(
             'feeds' => $feeds,

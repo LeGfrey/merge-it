@@ -26,7 +26,7 @@ class MergedFeedController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $mergedFeeds = $em->getRepository('AppBundle:MergedFeed')->findAll();
+        $mergedFeeds = $em->getRepository('AppBundle:MergedFeed')->findByAuthor($this->getUser());
 
         return $this->render('mergedfeed/index.html.twig', array(
             'mergedFeeds' => $mergedFeeds,
@@ -41,12 +41,17 @@ class MergedFeedController extends Controller
      */
     public function newAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
         $mergedFeed = new MergedFeed();
-        $form = $this->createForm('AppBundle\Form\MergedFeedType', $mergedFeed);
+        $feeds = $em->getRepository('AppBundle:Feed')->findByAuthor($this->getUser());
+        
+        $form = $this->createForm('AppBundle\Form\MergedFeedType', $mergedFeed, ['choices' => $feeds]);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+            // set the author
+            $mergedFeed->setAuthor($this->getUser());
             $em->persist($mergedFeed);
             $em->flush();
 
@@ -85,12 +90,15 @@ class MergedFeedController extends Controller
      */
     public function editAction(Request $request, MergedFeed $mergedFeed)
     {
+        $em = $this->getDoctrine()->getManager();
+
+        $feeds = $em->getRepository('AppBundle:Feed')->findByAuthor($this->getUser());
+
         $deleteForm = $this->createDeleteForm($mergedFeed);
-        $editForm = $this->createForm('AppBundle\Form\MergedFeedType', $mergedFeed);
+        $editForm = $this->createForm('AppBundle\Form\MergedFeedType', $mergedFeed, ['choices' => $feeds]);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $em = $this->getDoctrine()->getManager();
             $em->persist($mergedFeed);
             $em->flush();
 

@@ -1,28 +1,35 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>My feeds</h1>
+    <h1>
+        <i class="material-icons">rss_feed</i>
+        <span>My feeds</span>
+    </h1>
     <div class="content">
-        <table class="table">
+        <a class="btn btn-success btn-raised" href="{{ path('user_feed_new') }}">
+            <i class="material-icons">add_circle_outline</i>
+            <span>Create a new entry</span>
+        </a>
+        <table class="table table-striped">
             <thead>
             <tr>
                 <th>Name</th>
                 <th>Url</th>
-                <th>Actions</th>
+                <th class="actions-title">Actions</th>
             </tr>
             </thead>
             <tbody>
             {% for feed in feeds %}
                 <tr>
-                    <td><a href="{{ path('user_feed_show', { 'id': feed.id }) }}">{{ feed.name }}</a></td>
+                    <td><a href="{{ path('user_feed_show', { 'id': feed.id }) }}"><i class="material-icons">keyboard_arrow_right</i>{{ feed.name }}</a></td>
                     <td>{{ feed.url }}</td>
                     <td>
-                        <ul>
+                        <ul class="actions">
                             <li>
-                                <a href="{{ path('user_feed_show', { 'id': feed.id }) }}">show</a>
+                                <a href="{{ path('user_feed_show', { 'id': feed.id }) }}"><i class="material-icons">search</i></a>
                             </li>
                             <li>
-                                <a href="{{ path('user_feed_edit', { 'id': feed.id }) }}">edit</a>
+                                <a href="{{ path('user_feed_edit', { 'id': feed.id }) }}"><i class="material-icons">create</i></a>
                             </li>
                         </ul>
                     </td>
@@ -30,7 +37,5 @@
             {% endfor %}
             </tbody>
         </table>
-
-        <a class="btn btn-success btn-raised" href="{{ path('user_feed_new') }}">Create a new entry</a>
     </div>
 {% endblock %}

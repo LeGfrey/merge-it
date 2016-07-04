@@ -1,9 +1,80 @@
+/** Reset */
+html, body, #app {
+    min-height: 100%;
+    height: 100%;
+}
+
+/** Homepage */
+.homepage {
+    min-height: 100%;
+    background-image: url('https://static.pexels.com/photos/30111/pexels-photo-30111.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+body
+
+.homepage .navbar.navbar-warning {
+    background-color: transparent;
+    color: #ff835c;
+}
+
+.homepage .navbar .navbar-nav>li>a.active, 
+.homepage .navbar .navbar-nav>li>a:hover {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.homepage .navbar .navbar-brand {
+    color: #ff835c;
+}
+
+.homepage::before {
+    content:'';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.58);
+}
+
+.home-container {
+    position: absolute;
+    top: 20%;
+    bottom: 0;
+    width: 60%;
+    color: white;
+    font-weight: bolder;
+    padding: 40px 55px;
+}
+
+.home-container h1 i {
+    margin-right: 15px;
+    font-size: 45px;
+    vertical-align: bottom;
+}
+
+.home-container p {
+    font-size: 20px;
+}
+
+.text-orange {
+    color: #ff835c;
+}
+
+/** Navbar */
 body .navbar.navbar-warning {
     background-color: #ff835c;
 }
 
 body .navbar .navbar-nav>li>a {
+    font-weight: 500;
     transition: background-color 0.5s ease;
+    border: solid 2px transparent;
 }
 
 body .navbar .navbar-nav>li>a.active,
@@ -20,12 +91,13 @@ body .navbar .navbar-brand {
     margin-left: 5px !important;
 }
 
-.container #app {
+/** Title block */
+#app {
     background-color: #f9f9f9;
     box-shadow: 1px 1px 5px #dedede;
 }
 
-.container #app h1 {
+#app h1 {
     background-color: #444444;
     color: white;
     margin: 0;
@@ -33,10 +105,54 @@ body .navbar .navbar-brand {
     font-size: 25px;
 }
 
-.container #app .content {
-    padding: 60px 25px 25px 25px;
+#app .content {
+    padding: 35px 25px 25px 25px;
 }
+
+/** Form */
 
 #app .form-group {
     margin: 0;
+}
+
+/** Table listing */
+
+#app .table>thead>tr>th {
+    border: none;
+    padding: 15px;
+}
+
+#app .table>thead>tr {
+    background-color: #ff835c;
+    color: white;
+    margin-bottom: 15px;
+}
+
+#app .table>tbody>tr td {
+    padding: 20px;
+}
+
+#app .table>tbody>tr>th {
+    vertical-align: inherit;
+}
+
+.actions li {
+    display: inline-block;
+    margin: 0 5px;
+    float: right;
+}
+
+.actions-title {
+    float: right;
+}
+
+/** Others */
+
+.btn.btn-float {
+    float: left;
+    margin-right: 15px;
+}
+
+#app .checkbox-material {
+    margin-right: 15px;
 }

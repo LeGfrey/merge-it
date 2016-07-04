@@ -1,29 +1,36 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>My merged feeds</h1>
+    <h1>
+        <i class="material-icons">merge_type</i>
+        <span>My merged feeds</span>
+    </h1>
     <div class="content">
-        <table class="table">
+        <a class="btn btn-success btn-raised" href="{{ path('user_merged_new') }}">
+            <i class="material-icons">add_circle_outline</i>
+            <span>Create a new entry</span>
+        </a>
+        <table class="table table-striped">
             <thead>
             <tr>
                 <th>Name</th>
-                <th>Actions</th>
+                <th class="actions-title">Actions</th>
             </tr>
             </thead>
             <tbody>
             {% for mergedFeed in mergedFeeds %}
                 <tr>
-                    <td><a href="{{ path('user_merged_show', { 'id': mergedFeed.id }) }}">{{ mergedFeed.name }}</a></td>
+                    <td><a href="{{ path('user_merged_show', { 'id': mergedFeed.id }) }}"><i class="material-icons">keyboard_arrow_right</i>{{ mergedFeed.name }}</a></td>
                     <td>
-                        <ul>
+                        <ul class="actions">
                             <li>
-                                <a href="{{ path('user_merged_show', { 'id': mergedFeed.id }) }}">show</a>
+                                <a href="{{ path('user_merged_show', { 'id': mergedFeed.id }) }}"><i class="material-icons">search</i></a>
                             </li>
                             <li>
-                                <a href="{{ path('user_merged_edit', { 'id': mergedFeed.id }) }}">edit</a>
+                                <a href="{{ path('user_merged_edit', { 'id': mergedFeed.id }) }}"><i class="material-icons">create</i></a>
                             </li>
                             <li>
-                                <a href="{{ path('user_merged_merge', { 'id': mergedFeed.id }) }}">my feed</a>
+                                <a href="{{ path('user_merged_merge', { 'id': mergedFeed.id }) }}"><i class="material-icons">rss_feed</i></a>
                             </li>
                         </ul>
                     </td>
@@ -31,7 +38,5 @@
             {% endfor %}
             </tbody>
         </table>
-
-        <a class="btn btn-success btn-raised" href="{{ path('user_merged_new') }}">Create a new entry</a>
     </div>
 {% endblock %}

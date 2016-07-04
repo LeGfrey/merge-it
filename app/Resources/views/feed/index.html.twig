@@ -2,34 +2,35 @@
 
 {% block body %}
     <h1>My feeds</h1>
-
-    <table class="table">
-        <thead>
+    <div class="content">
+        <table class="table">
+            <thead>
             <tr>
                 <th>Name</th>
                 <th>Url</th>
                 <th>Actions</th>
             </tr>
-        </thead>
-        <tbody>
-        {% for feed in feeds %}
-            <tr>
-                <td><a href="{{ path('user_feed_show', { 'id': feed.id }) }}">{{ feed.name }}</a></td>
-                <td>{{ feed.url }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('user_feed_show', { 'id': feed.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('user_feed_edit', { 'id': feed.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for feed in feeds %}
+                <tr>
+                    <td><a href="{{ path('user_feed_show', { 'id': feed.id }) }}">{{ feed.name }}</a></td>
+                    <td>{{ feed.url }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('user_feed_show', { 'id': feed.id }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('user_feed_edit', { 'id': feed.id }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 
-    <a class="btn btn-success btn-raised" href="{{ path('user_feed_new') }}">Create a new entry</a>
+        <a class="btn btn-success btn-raised" href="{{ path('user_feed_new') }}">Create a new entry</a>
+    </div>
 {% endblock %}

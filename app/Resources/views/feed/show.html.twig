@@ -2,9 +2,9 @@
 
 {% block body %}
     <h1>{{ feed.name }}</h1>
-
-    <table class="table">
-        <tbody>
+    <div class="content">
+        <table class="table">
+            <tbody>
             <tr>
                 <th>Name</th>
                 <td>{{ feed.name }}</td>
@@ -13,12 +13,13 @@
                 <th>Url</th>
                 <td>{{ feed.url }}</td>
             </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 
-            <a class="btn btn-info btn-raised" href="{{ path('user_feed_index') }}">Back to the list</a>
-            <a class="btn btn-info btn-raised" href="{{ path('user_feed_edit', { 'id': feed.id }) }}">Edit</a>
-            {{ form_start(delete_form) }}
-                <input class="btn btn-danger btn-raised" type="submit" value="Delete">
-            {{ form_end(delete_form) }}
+        <a class="btn btn-info btn-raised" href="{{ path('user_feed_index') }}">Back to the list</a>
+        <a class="btn btn-info btn-raised" href="{{ path('user_feed_edit', { 'id': feed.id }) }}">Edit</a>
+        {{ form_start(delete_form) }}
+        <input class="btn btn-danger btn-raised" type="submit" value="Delete">
+        {{ form_end(delete_form) }}
+    </div>
 {% endblock %}

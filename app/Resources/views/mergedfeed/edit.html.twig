@@ -2,14 +2,15 @@
 
 {% block body %}
     <h1>Edit a merged feed</h1>
-
-    {{ form_start(edit_form) }}
+    <div class="content">
+        {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
         <input class="btn btn-success btn-raised" type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+        {{ form_end(edit_form) }}
 
-    <a class="btn btn-info btn-raised" href="{{ path('user_merged_index') }}">Back to the list</a>
-    {{ form_start(delete_form) }}
+        <a class="btn btn-info btn-raised" href="{{ path('user_merged_index') }}">Back to the list</a>
+        {{ form_start(delete_form) }}
         <input class="btn btn-danger btn-raised" type="submit" value="Delete">
-    {{ form_end(delete_form) }}
+        {{ form_end(delete_form) }}
+    </div>
 {% endblock %}

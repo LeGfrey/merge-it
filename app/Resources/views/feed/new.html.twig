@@ -2,11 +2,12 @@
 
 {% block body %}
     <h1>Add a new feed</h1>
-
-    {{ form_start(form) }}
+    <div class="content">
+        {{ form_start(form) }}
         {{ form_widget(form) }}
         <input class="btn btn-success btn-raised" type="submit" value="Create" />
-    {{ form_end(form) }}
+        {{ form_end(form) }}
 
-    <a class="btn btn-info btn-raised" href="{{ path('user_feed_index') }}">Back to the list</a>
+        <a class="btn btn-info btn-raised" href="{{ path('user_feed_index') }}">Back to the list</a>
+    </div>
 {% endblock %}

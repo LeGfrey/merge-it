@@ -1,0 +1,33 @@
+body .navbar.navbar-warning {
+    background-color: #ff835c;
+}
+
+body .navbar .navbar-nav>li>a {
+    transition: background-color 0.5s ease;
+}
+
+body .navbar .navbar-nav>li>a.active,
+body .navbar .navbar-nav>li>a:hover {
+    background-color: #ef6e46;
+}
+
+.container #app {
+    background-color: #f9f9f9;
+    box-shadow: 1px 1px 5px #dedede;
+}
+
+.container #app h1 {
+    background-color: #444444;
+    color: white;
+    margin: 0;
+    padding: 25px;
+    font-size: 25px;
+}
+
+.container #app .content {
+    padding: 60px 25px 25px 25px;
+}
+
+#app .form-group {
+    margin: 0;
+}

@@ -2,9 +2,9 @@
 
 {% block body %}
     <h1>{{ mergedFeed.name }}</h1>
-
-    <table class="table">
-        <tbody>
+    <div class="content">
+        <table class="table">
+            <tbody>
             <tr>
                 <th>Id</th>
                 <td>{{ mergedFeed.id }}</td>
@@ -23,12 +23,13 @@
                     </ul>
                 </td>
             </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 
-    <a class="btn btn-info btn-raised" href="{{ path('user_merged_index') }}">Back to the list</a>
-    <a class="btn btn-info btn-raised" href="{{ path('user_merged_edit', { 'id': mergedFeed.id }) }}">Edit</a>
-    {{ form_start(delete_form) }}
+        <a class="btn btn-info btn-raised" href="{{ path('user_merged_index') }}">Back to the list</a>
+        <a class="btn btn-info btn-raised" href="{{ path('user_merged_edit', { 'id': mergedFeed.id }) }}">Edit</a>
+        {{ form_start(delete_form) }}
         <input class="btn btn-danger btn-raised" type="submit" value="Delete">
-    {{ form_end(delete_form) }}
+        {{ form_end(delete_form) }}
+    </div>
 {% endblock %}

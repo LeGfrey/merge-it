@@ -9,6 +9,15 @@ body .navbar .navbar-nav>li>a {
 body .navbar .navbar-nav>li>a.active,
 body .navbar .navbar-nav>li>a:hover {
     background-color: #ef6e46;
+    border-bottom: solid 2px #d46644;
+}
+
+body .navbar .navbar-brand {
+    font-family: 'Pacifico';
+    font-size: 30px;
+    color: white;
+    margin-right: 40px;
+    margin-left: 5px !important;
 }
 
 .container #app {

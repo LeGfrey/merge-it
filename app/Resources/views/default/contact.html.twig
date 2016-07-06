@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Contact</h1>
+    <div class="content">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn btn-success btn-raised" type="submit"><i class="material-icons">done</i>Send</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

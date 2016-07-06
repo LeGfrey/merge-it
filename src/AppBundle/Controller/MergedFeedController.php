@@ -55,7 +55,8 @@ class MergedFeedController extends Controller
             $mergedFeed->setAuthor($this->getUser());
             $em->persist($mergedFeed);
             $em->flush();
-
+            $request->getSession()->getFlashBag()->set('success', 'Merged feed successfully added');
+            
             return $this->redirectToRoute('user_merged_show', array('id' => $mergedFeed->getId()));
         }
 
@@ -102,6 +103,7 @@ class MergedFeedController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em->persist($mergedFeed);
             $em->flush();
+            $request->getSession()->getFlashBag()->set('success', 'Merged feed successfully edited');
 
             return $this->redirectToRoute('user_merged_edit', array('id' => $mergedFeed->getId()));
         }
@@ -128,6 +130,7 @@ class MergedFeedController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->remove($mergedFeed);
             $em->flush();
+            $request->getSession()->getFlashBag()->set('success', 'Merged feed successfully removed');
         }
 
         return $this->redirectToRoute('user_merged_index');

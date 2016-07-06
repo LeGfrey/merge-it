@@ -51,7 +51,8 @@ class FeedController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($feed);
             $em->flush();
-
+            $request->getSession()->getFlashBag()->set('success', 'Feed successfully added');
+            
             return $this->redirectToRoute('user_feed_show', array('id' => $feed->getId()));
         }
 
@@ -93,6 +94,7 @@ class FeedController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($feed);
             $em->flush();
+            $request->getSession()->getFlashBag()->set('success', 'Feed successfully edited');
 
             return $this->redirectToRoute('user_feed_edit', array('id' => $feed->getId()));
         }
@@ -119,6 +121,7 @@ class FeedController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->remove($feed);
             $em->flush();
+            $request->getSession()->getFlashBag()->set('success', 'Feed successfully removed');
         }
 
         return $this->redirectToRoute('user_feed_index');

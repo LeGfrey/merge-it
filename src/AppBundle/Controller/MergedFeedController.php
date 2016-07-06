@@ -56,7 +56,7 @@ class MergedFeedController extends Controller
             $em->persist($mergedFeed);
             $em->flush();
             $request->getSession()->getFlashBag()->set('success', 'Merged feed successfully added');
-            
+
             return $this->redirectToRoute('user_merged_show', array('id' => $mergedFeed->getId()));
         }
 
@@ -74,6 +74,10 @@ class MergedFeedController extends Controller
      */
     public function showAction(MergedFeed $mergedFeed)
     {
+        if($mergedFeed->getAuthor()->getId() != $this->getUser()->getId()) {
+            return $this->render('default/forbidden.html.twig');
+        }
+
         $deleteForm = $this->createDeleteForm($mergedFeed);
         $feeds = $mergedFeed->getFeeds()->getValues();
 
@@ -92,6 +96,10 @@ class MergedFeedController extends Controller
      */
     public function editAction(Request $request, MergedFeed $mergedFeed)
     {
+        if($mergedFeed->getAuthor()->getId() != $this->getUser()->getId()) {
+            return $this->render('default/forbidden.html.twig');
+        }
+
         $em = $this->getDoctrine()->getManager();
 
         $feeds = $em->getRepository('AppBundle:Feed')->findByAuthor($this->getUser());
@@ -123,6 +131,10 @@ class MergedFeedController extends Controller
      */
     public function deleteAction(Request $request, MergedFeed $mergedFeed)
     {
+        if($mergedFeed->getAuthor()->getId() != $this->getUser()->getId()) {
+            return $this->render('default/forbidden.html.twig');
+        }
+
         $form = $this->createDeleteForm($mergedFeed);
         $form->handleRequest($request);
 
@@ -143,6 +155,10 @@ class MergedFeedController extends Controller
      * @Method("GET")
      */
     public function mergeAction(Request $request, MergedFeed $mergedFeed) {
+        if($mergedFeed->getAuthor()->getId() != $this->getUser()->getId()) {
+            return $this->render('default/forbidden.html.twig');
+        }
+
         $rssHelper = $this->get('rss_helper');
         $feeds = $mergedFeed->getFeeds()->toArray();
         $feeds = array_map(function($feed) {

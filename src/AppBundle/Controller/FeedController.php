@@ -52,7 +52,7 @@ class FeedController extends Controller
             $em->persist($feed);
             $em->flush();
             $request->getSession()->getFlashBag()->set('success', 'Feed successfully added');
-            
+
             return $this->redirectToRoute('user_feed_show', array('id' => $feed->getId()));
         }
 
@@ -70,6 +70,10 @@ class FeedController extends Controller
      */
     public function showAction(Feed $feed)
     {
+        if($feed->getAuthor()->getId() != $this->getUser()->getId()) {
+            return $this->render('default/forbidden.html.twig');
+        }
+
         $deleteForm = $this->createDeleteForm($feed);
 
         return $this->render('feed/show.html.twig', array(
@@ -86,6 +90,10 @@ class FeedController extends Controller
      */
     public function editAction(Request $request, Feed $feed)
     {
+        if($feed->getAuthor()->getId() != $this->getUser()->getId()) {
+            return $this->render('default/forbidden.html.twig');
+        }
+
         $deleteForm = $this->createDeleteForm($feed);
         $editForm = $this->createForm('AppBundle\Form\FeedType', $feed);
         $editForm->handleRequest($request);
@@ -114,6 +122,10 @@ class FeedController extends Controller
      */
     public function deleteAction(Request $request, Feed $feed)
     {
+        if($feed->getAuthor()->getId() != $this->getUser()->getId()) {
+            return $this->render('default/forbidden.html.twig');
+        }
+
         $form = $this->createDeleteForm($feed);
         $form->handleRequest($request);
 

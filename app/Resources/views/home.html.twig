@@ -13,12 +13,14 @@
         <link rel="stylesheet" href="{{ asset('css/bootstrap-material-design.min.css') }}" />
     </head>
     <body>
-        <div class="homepage">
+        <div class="homepage-top">
             {% include 'header.html.twig' %}
-            
+
             {% block body %}{% endblock %}
         </div>
-
+        <div class="homepage-content">
+            {% block page_content %}{% endblock %}
+        </div>
         {% block javascripts %}{% endblock %}
         <script src="{{ asset('js/jquery-2.2.4.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>

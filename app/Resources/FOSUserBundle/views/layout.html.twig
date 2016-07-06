@@ -1,7 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	<h1>{% block title_page %}{% endblock %}</h1>
+
+{% set _block = block('title_page') %}
+	{% if _block is not empty %}
+	    <h1>{{ _block|raw }}</h1>
+	{% endif %}
 	<div class="content">
     	{% block fos_user_content %}{% endblock %}
     </div>

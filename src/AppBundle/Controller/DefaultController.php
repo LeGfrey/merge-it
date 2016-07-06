@@ -32,7 +32,7 @@ class DefaultController extends Controller
                 ->setSubject($form->get('subject')->getData())
                 ->setFrom($form->get('email')->getData())
                 ->setTo('geoffrey@rssmergeit.com')
-                ->setBody('FROM: '.$form->get('name')->getData().' ('.$request->getClientIp().')\n'.$form->get('message')->getData());
+                ->setBody('FROM: '.$form->get('name')->getData().' ('.$request->getClientIp().")\n".$form->get('message')->getData());
             $this->get('mailer')->send($message);
             $request->getSession()->getFlashBag()->add('success', 'Your email has been sent! Check your inbox for an answer.');
         }

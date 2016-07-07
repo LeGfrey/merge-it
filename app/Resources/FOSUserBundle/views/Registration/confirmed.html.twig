@@ -1,0 +1,10 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+<div class="user-confirmed">
+  <i class="material-icons">face</i>
+  <p>Welcome {{ user.username }}</p>
+</div>
+{% endblock fos_user_content %}

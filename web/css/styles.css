@@ -97,7 +97,7 @@ html, body, #app {
     margin: 12px;
     display: block;
     font-size: 5em;
-    
+
 }
 
 .homepage-content .col p {
@@ -265,6 +265,21 @@ body .navbar .navbar-brand {
   height: 100%;
   margin: 0;
   color: #009688;
+}
+
+/** User confirmed */
+
+.user-confirmed {
+  text-align: center;
+}
+
+.user-confirmed i {
+  font-size: 20vw;
+  color: #ff835c;
+}
+
+.user-confirmed p {
+  font-size: 25px;
 }
 
 /** Others */

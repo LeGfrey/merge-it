@@ -2,7 +2,7 @@
 
 {% trans_default_domain 'FOSUserBundle' %}
 
-{% block title %}Please login first{% endblock %}
+{% block title_page %}Please login first{% endblock %}
 
 {% block fos_user_content %}
 {% if error %}
@@ -11,7 +11,7 @@
 
 <form action="{{ path("fos_user_security_check") }}" method="post">
     <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-	
+
 	<div class="form-group">
 	    <label for="username">Username</label>
 	    <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" required="required" />

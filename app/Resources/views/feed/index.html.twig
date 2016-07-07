@@ -10,32 +10,26 @@
             <i class="material-icons">add_circle_outline</i>
             <span>Create a new entry</span>
         </a>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Url</th>
-                <th class="actions-title">Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for feed in feeds %}
-                <tr>
-                    <td><a href="{{ path('user_feed_show', { 'id': feed.id }) }}"><i class="material-icons">keyboard_arrow_right</i>{{ feed.name }}</a></td>
-                    <td>{{ feed.url }}</td>
-                    <td>
-                        <ul class="actions">
-                            <li>
-                                <a href="{{ path('user_feed_show', { 'id': feed.id }) }}"><i class="material-icons">search</i></a>
-                            </li>
-                            <li>
-                                <a href="{{ path('user_feed_edit', { 'id': feed.id }) }}"><i class="material-icons">create</i></a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+        <ul class="table-listing list-group">
+          {% for feed in feeds %}
+              <li class="list-group-item">
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <i class="material-icons">settings</i>
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li>
+                        <a href="{{ path('user_feed_show', { 'id': feed.id }) }}"><i class="material-icons">search</i> Details</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('user_feed_edit', { 'id': feed.id }) }}"><i class="material-icons">create</i> Edit</a>
+                    </li>
+                  </ul>
+                </div>
+                <a href="{{ path('user_feed_show', { 'id': feed.id }) }}"><i class="material-icons">keyboard_arrow_right</i>{{ feed.name }}</a>
+              </li>
+          {% endfor %}
+        </ul>
     </div>
 {% endblock %}

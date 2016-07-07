@@ -10,33 +10,29 @@
             <i class="material-icons">add_circle_outline</i>
             <span>Create a new entry</span>
         </a>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th class="actions-title">Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for mergedFeed in mergedFeeds %}
-                <tr>
-                    <td><a href="{{ path('user_merged_show', { 'id': mergedFeed.id }) }}"><i class="material-icons">keyboard_arrow_right</i>{{ mergedFeed.name }}</a></td>
-                    <td>
-                        <ul class="actions">
-                            <li>
-                                <a href="{{ path('user_merged_show', { 'id': mergedFeed.id }) }}"><i class="material-icons">search</i></a>
-                            </li>
-                            <li>
-                                <a href="{{ path('user_merged_edit', { 'id': mergedFeed.id }) }}"><i class="material-icons">create</i></a>
-                            </li>
-                            <li>
-                                <a href="{{ path('user_merged_merge', { 'id': mergedFeed.id }) }}"><i class="material-icons">rss_feed</i></a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+        <ul class="table-listing list-group">
+          {% for mergedFeed in mergedFeeds %}
+              <li class="list-group-item">
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <i class="material-icons">settings</i>
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li>
+                        <a href="{{ path('user_merged_show', { 'id': mergedFeed.id }) }}"><i class="material-icons">search</i> Details</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('user_merged_edit', { 'id': mergedFeed.id }) }}"><i class="material-icons">create</i> Edit</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('user_merged_merge', { 'id': mergedFeed.id }) }}"><i class="material-icons">rss_feed</i> Get RSS Feed</a>
+                    </li>
+                  </ul>
+                </div>
+                <a href="{{ path('user_merged_show', { 'id': mergedFeed.id }) }}"><i class="material-icons">keyboard_arrow_right</i>{{ mergedFeed.name }}</a>
+              </li>
+          {% endfor %}
+        </ul>
     </div>
 {% endblock %}

@@ -147,6 +147,10 @@ html, body, #app {
         background-color: #2b2b2b;
         z-index: 2;
     }
+    
+    .homepage-content .col {
+      margin-bottom: 10px;
+    }
 }
 
 @media(max-width: 375px) {
@@ -223,34 +227,44 @@ body .navbar .navbar-brand {
 }
 
 /** Table listing */
-
-#app .table>thead>tr>th {
-    border: none;
-    padding: 15px;
+.table-listing {
+    list-style: none;
 }
 
-#app .table>thead>tr {
-    background-color: #ff835c;
-    color: white;
-    margin-bottom: 15px;
+.list-group.table-listing .list-group-item {
+  overflow: visible;
 }
 
-#app .table>tbody>tr td {
-    padding: 20px;
+
+.table-listing .list-group-item .dropdown,
+.table-listing .list-group-item a {
+  display: inline-block;
 }
 
-#app .table>tbody>tr>th {
-    vertical-align: inherit;
+.table-listing .list-group-item>a {
+  padding: 20px 5px;
+  width: 100%;
 }
 
-.actions li {
-    display: inline-block;
-    margin: 0 5px;
-    float: right;
+.table-listing .list-group-item {
+  transition: background-color 0.5s ease;
 }
 
-.actions-title {
-    float: right;
+.table-listing .list-group-item:hover {
+  background-color: #eee;
+}
+
+.table-listing .list-group-item .dropdown {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
+.table-listing .list-group-item .dropdown>button {
+  height: 100%;
+  margin: 0;
+  color: #009688;
 }
 
 /** Others */

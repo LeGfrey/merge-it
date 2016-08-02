@@ -26,7 +26,7 @@
                         <a href="{{ path('user_merged_edit', { 'id': mergedFeed.id }) }}"><i class="material-icons">create</i> Edit</a>
                     </li>
                     <li>
-                        <a href="{{ path('user_merged_merge', { 'id': mergedFeed.id }) }}"><i class="material-icons">rss_feed</i> Get RSS Feed</a>
+                        <a href="{{ path('user_merged_merge', { 'id': mergedFeed.id, 'ownerId': app.user.id }) }}"><i class="material-icons">rss_feed</i> Get RSS Feed</a>
                     </li>
                   </ul>
                 </div>

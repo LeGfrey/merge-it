@@ -32,8 +32,9 @@ class RssHelper
         $feed->set_feed_url($feedsUrl);
         $feed->set_cache_duration(600);
         $success = $feed->init();
-        if(!$success) return false;
         $feed->handle_content_type();
+        
+        if(!$success) return false;
 
         foreach($feed->get_items() as $item) {
             $feedString .= '<item>'."\n";

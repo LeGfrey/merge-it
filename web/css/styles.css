@@ -42,6 +42,10 @@ html, body, #app {
     background: rgba(255, 79, 36, 0.7);
 }
 
+.navbar i {
+  margin-right: 5px;
+}
+
 .home-container {
     position: absolute;
     top: 20%;
@@ -147,7 +151,7 @@ html, body, #app {
         background-color: #2b2b2b;
         z-index: 2;
     }
-    
+
     .homepage-content .col {
       margin-bottom: 10px;
     }

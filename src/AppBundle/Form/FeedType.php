@@ -15,11 +15,11 @@ class FeedType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('url')
             ->add('name')
+            ->add('url')
         ;
     }
-    
+
     /**
      * @param OptionsResolver $resolver
      */

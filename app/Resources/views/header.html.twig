@@ -14,10 +14,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-left">
-        <li><a class="{% if app.request.attributes.get('_route') == 'homepage' %}active{% endif %}"  href="/">Home</a></li>
-        <li><a class="{% if app.request.attributes.get('_route') starts with 'user_feed' %}active{% endif %}"  href="/user/feed">My feeds</a></li>
-        <li><a class="{% if app.request.attributes.get('_route') starts with 'user_merged' %}active{% endif %}"  href="/user/merged">My merged feeds</a></li>
-        <li><a class="{% if app.request.attributes.get('_route') == 'contact' %}active{% endif %}"  href="/contact">Contact</a></li>
+        <li><a class="{% if app.request.attributes.get('_route') == 'homepage' %}active{% endif %}"  href="/"><i class="material-icons">home</i>Home</a></li>
+        <li><a class="{% if app.request.attributes.get('_route') starts with 'user_feed' %}active{% endif %}"  href="/user/feed"><i class="material-icons">rss_feed</i>My feeds</a></li>
+        <li><a class="{% if app.request.attributes.get('_route') starts with 'user_merged' %}active{% endif %}"  href="/user/merged"><i class="material-icons">merge_type</i>My merged feeds</a></li>
+        <li><a class="{% if app.request.attributes.get('_route') == 'contact' %}active{% endif %}"  href="/contact"><i class="material-icons">mail_outline</i>Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {% if app.user %}

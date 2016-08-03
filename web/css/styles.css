@@ -250,6 +250,10 @@ body .navbar .navbar-brand {
   width: 100%;
 }
 
+.table-listing .list-group-item a.btn-get-feed {
+  padding: 10px;
+}
+
 .table-listing .list-group-item {
   transition: background-color 0.5s ease;
 }
@@ -258,7 +262,7 @@ body .navbar .navbar-brand {
   background-color: #eee;
 }
 
-.table-listing .list-group-item .dropdown {
+.table-listing .list-group-item .float-right {
   position: absolute;
   right: 0;
   bottom: 0;

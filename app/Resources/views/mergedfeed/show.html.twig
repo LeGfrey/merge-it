@@ -16,11 +16,9 @@
             <tr>
                 <th>Feeds</th>
                 <td>
-                    <ul>
-                        {% for feed in feeds %}
-                            <li>{{ feed }}</li>
-                        {% endfor %}
-                    </ul>
+                    {% for feed in feeds %}
+                        <p><a href="{{ feed.url }}">{{ feed.name }}</a></p>
+                    {% endfor %}
                 </td>
             </tr>
             </tbody>
